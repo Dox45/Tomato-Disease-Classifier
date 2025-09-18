@@ -3,3 +3,4 @@ uvicorn
 gdown
 torch --extra-index-url https://download.pytorch.org/whl/cpu
 torchvision --extra-index-url https://download.pytorch.org/whl/cpu
+python-multipart
