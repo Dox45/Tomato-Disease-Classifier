@@ -35,7 +35,7 @@ app = FastAPI(
 # Enable CORS for frontend integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "*"],  # Add your frontend URL
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000","tomatoclassifierv1.vercel.app", "*"],  # Add your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -431,12 +431,20 @@ async def general_exception_handler(request, exc):
         }
     )
 
+# if __name__ == "__main__":
+#     # Run the server
+#     uvicorn.run(
+#         "main:app",  # Assuming this file is named main.py
+#         host="0.0.0.0",
+#         port=8000,
+#         reload=True,  # Remove in production
+#         log_level="info"
+#     )
 if __name__ == "__main__":
-    # Run the server
     uvicorn.run(
         "main:app",  # Assuming this file is named main.py
         host="0.0.0.0",
-        port=8000,
-        reload=True,  # Remove in production
+        port=int(os.environ.get("PORT", 8000)),  # Use Render's PORT
+        reload=True,  # ✅ safe locally, but disable in production
         log_level="info"
     )
