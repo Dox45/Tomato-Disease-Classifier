@@ -145,7 +145,7 @@ const TomatoDiseaseClassifier = () => {
       formData.append('file', selectedFile);
 
       // Call the FastAPI backend
-      const response = await fetch('http://localhost:8000/classify', {
+      const response = await fetch('https://tomato-disease-classifier-kl3p.onrender.com/classify', {
         method: 'POST',
         body: formData,
       });
