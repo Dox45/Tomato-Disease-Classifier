@@ -13,6 +13,14 @@ import uvicorn
 from pathlib import Path
 import json
 
+import gdown
+
+url = "https://drive.google.com/uc?id=1EWN0H7y9PY0oEUB_DQW6ilORy3L2ZWgV"
+output = "best_tomato_model.pth"
+
+gdown.download(url, output, quiet=False)
+
+
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
